@@ -1,6 +1,6 @@
 import {StyleSheet, Text, View} from 'react-native';
 
-const WelcomeScreen = () => {
+const LoginScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.welcome}>Welcome!</Text>
@@ -13,10 +13,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     paddingHorizontal: 40,
+    backgroundColor: '#f8f8f8',
   },
   welcome: {
     fontSize: 40,
   },
 });
 
-export default WelcomeScreen;
+export default LoginScreen;

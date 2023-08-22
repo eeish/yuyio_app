@@ -9,16 +9,21 @@
  */
 
 import React from 'react';
-import {SafeAreaView} from 'react-native';
-
+import {SafeAreaView, StyleSheet} from 'react-native';
 import Navigation from './src/Navigation';
 
 const App = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <Navigation colorScheme="light" />
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 
 export default App;
