@@ -2,15 +2,15 @@ import {
   DarkTheme,
   DefaultTheme,
   NavigationContainer,
-  createNavigationContainerRef,
 } from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {ColorSchemeName} from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { ColorSchemeName } from 'react-native';
 import LoginScreen from './screens/LoginScreen';
+import MapScreen from './screens/MapScreen';
+import { Routes, navigationRef } from './utils/navigation';
+import { RootStackParamList } from './utils/types';
 
-export const navigationRef = createNavigationContainerRef();
-
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 interface Props {
   colorScheme: ColorSchemeName;
@@ -19,9 +19,14 @@ interface Props {
 export default function Navigation(props: Props) {
   return (
     <NavigationContainer
+      ref={navigationRef}
       theme={props.colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="LoginScreen" component={LoginScreen} />
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen
+          name={Routes.TopStack.LoginScreen}
+          component={LoginScreen}
+        />
+        <Stack.Screen name={Routes.TopStack.MapScreen} component={MapScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

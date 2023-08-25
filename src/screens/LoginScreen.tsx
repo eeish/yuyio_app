@@ -1,11 +1,21 @@
 import { useWalletConnectModal } from '@walletconnect/modal-react-native';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Button from '../components/Button';
 import Container from '../components/Container';
+import { Routes } from '../utils/navigation';
+import { RootStackScreenProps } from '../utils/types';
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }: RootStackScreenProps<'LoginScreen'>) => {
   const { provider, isConnected, open } = useWalletConnectModal();
+
+  useEffect(() => {
+    if (provider) {
+      provider?.on('connect', () => {
+        console.log('connect wallet');
+      });
+    }
+  }, [provider]);
 
   const onPressConnect = useCallback(async () => {
     if (isConnected) {
@@ -13,6 +23,9 @@ const LoginScreen = () => {
     } else {
       await open();
     }
+
+    console.log('map页面');
+    navigation.navigate(Routes.TopStack.MapScreen);
   }, [isConnected, open, provider]);
 
   return (
