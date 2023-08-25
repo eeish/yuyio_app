@@ -9,42 +9,40 @@ import {
 import { Edge, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 interface ContainerProps extends ViewProps {
-  backgroundSource?: ImageSourcePropType;
+  source?: ImageSourcePropType;
   blurRadius?: number;
   style?: ViewStyle;
   safeAreaEdges?: Edge[];
 }
 
 export default function Container(props: ContainerProps) {
-  const {
-    backgroundSource = require('../assets/images/splash.jpg'),
-    blurRadius,
-    style,
-    safeAreaEdges = [],
-    children,
-  } = props;
+  const { source, blurRadius, style, safeAreaEdges = [], children } = props;
   const insets = useSafeAreaInsets();
 
   return (
     <View style={styles.container}>
-      <ImageBackground
-        source={backgroundSource}
-        blurRadius={blurRadius}
-        style={styles.background}>
-        <View
-          style={[
-            styles.background,
-            safeAreaEdges.includes('top') && { paddingTop: insets.top },
-            safeAreaEdges.includes('bottom') && {
-              paddingBottom: insets.bottom,
-            },
-            safeAreaEdges.includes('left') && { paddingLeft: insets.left },
-            safeAreaEdges.includes('right') && { paddingRight: insets.right },
-            style,
-          ]}>
-          {children}
-        </View>
-      </ImageBackground>
+      {source ? (
+        <ImageBackground
+          source={source}
+          blurRadius={blurRadius}
+          style={styles.background}>
+          <View
+            style={[
+              styles.background,
+              safeAreaEdges.includes('top') && { paddingTop: insets.top },
+              safeAreaEdges.includes('bottom') && {
+                paddingBottom: insets.bottom,
+              },
+              safeAreaEdges.includes('left') && { paddingLeft: insets.left },
+              safeAreaEdges.includes('right') && { paddingRight: insets.right },
+              style,
+            ]}>
+            {children}
+          </View>
+        </ImageBackground>
+      ) : (
+        <View>{children}</View>
+      )}
     </View>
   );
 }

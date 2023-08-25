@@ -1,21 +1,23 @@
-import { useWalletConnectModal } from '@walletconnect/modal-react-native';
+import {
+  WalletConnectModal,
+  useWalletConnectModal,
+} from '@walletconnect/modal-react-native';
 import { useCallback, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Button from '../components/Button';
 import Container from '../components/Container';
 import { Routes } from '../utils/navigation';
 import { RootStackScreenProps } from '../utils/types';
+import web3ModalConfig from '../utils/web3modal';
 
 const LoginScreen = ({ navigation }: RootStackScreenProps<'LoginScreen'>) => {
   const { provider, isConnected, open } = useWalletConnectModal();
 
   useEffect(() => {
-    if (provider) {
-      provider?.on('connect', () => {
-        console.log('connect wallet');
-      });
+    if (isConnected) {
+      navigation.navigate(Routes.TopStack.MapScreen);
     }
-  }, [provider]);
+  }, [isConnected]);
 
   const onPressConnect = useCallback(async () => {
     if (isConnected) {
@@ -23,13 +25,10 @@ const LoginScreen = ({ navigation }: RootStackScreenProps<'LoginScreen'>) => {
     } else {
       await open();
     }
-
-    console.log('map页面');
-    navigation.navigate(Routes.TopStack.MapScreen);
   }, [isConnected, open, provider]);
 
   return (
-    <Container>
+    <Container source={require('../assets/images/splash.jpg')}>
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome!</Text>
       </View>
@@ -40,6 +39,7 @@ const LoginScreen = ({ navigation }: RootStackScreenProps<'LoginScreen'>) => {
           text={'Connect Wallet'}
         />
       </View>
+      <WalletConnectModal {...web3ModalConfig} />
     </Container>
   );
 };
