@@ -9,8 +9,11 @@
  */
 
 import React from 'react';
+import { enableLatestRenderer } from 'react-native-maps';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Navigation from './src/Navigation';
+
+enableLatestRenderer();
 
 const App = () => {
   return (
