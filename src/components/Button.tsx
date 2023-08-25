@@ -74,7 +74,7 @@ export default function Button({
       onPress={onPress}
       onPressIn={handlePressIn}
       onPressOut={handleRelease}
-      activeOpacity={0.8}
+      activeOpacity={0.85}
       style={[
         fullWidth ? styles.fullWidth : styles.wrappedWidth,
         touchableStyle,
