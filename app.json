@@ -1,6 +1,9 @@
 {
   "expo": {
     "name": "Yuyio",
-    "slug": "yuyio"
+    "slug": "yuyio",
+    "splash": {
+      "image": "./src/assets/images/splash.png"
+    }
   }
 }
