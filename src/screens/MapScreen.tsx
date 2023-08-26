@@ -1,17 +1,17 @@
-import { useWalletConnectModal } from '@walletconnect/modal-react-native';
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import Button from '../components/Button';
 import Container from '../components/Container';
 import { height } from '../utils/layout';
+import { Routes } from '../utils/navigation';
 import { RootStackScreenProps } from '../utils/types';
 
 const MapScreen = ({ navigation }: RootStackScreenProps<'MapScreen'>) => {
-  const { address } = useWalletConnectModal();
-
-  console.log('address', address);
-
   const onPressChat = () => {};
+
+  const onPressAvatar = () => {
+    navigation.navigate(Routes.TopStack.ProfileScreen);
+  };
 
   return (
     <Container style={styles.container}>
@@ -26,6 +26,7 @@ const MapScreen = ({ navigation }: RootStackScreenProps<'MapScreen'>) => {
         />
       </TouchableOpacity>
       <TouchableOpacity
+        onPress={onPressAvatar}
         style={[styles.buttonWrapper, styles.avatar]}
         activeOpacity={0.85}>
         <Image
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 18,
-    backgroundColor: '#f2f2f2',
+    backgroundColor: '#f8f8f8',
   },
   back: {
     position: 'absolute',

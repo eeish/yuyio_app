@@ -6,7 +6,7 @@ export const WC_PROJECT_ID = '93cee003066934486ff6fd09f0e1491a';
 
 const providerMetadata: IProviderMetadata = {
   name: 'Yuyio',
-  description: 'Travel the world',
+  description: 'Travel around the world',
   url: 'https://github.com',
   icons: ['https://i.ibb.co/DtkQvD3/App-icon.png'],
   redirect: {

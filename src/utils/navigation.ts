@@ -7,6 +7,7 @@ import { RootStackParamList } from './types';
 const TopStack = {
   LoginScreen: 'LoginScreen' as const,
   MapScreen: 'MapScreen' as const,
+  ProfileScreen: 'ProfileScreen' as const,
 };
 
 export const Routes = {
