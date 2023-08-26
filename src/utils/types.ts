@@ -5,6 +5,8 @@ export type RootStackParamList = {
   [Routes.TopStack.LoginScreen]: undefined;
   [Routes.TopStack.MapScreen]: undefined;
   [Routes.TopStack.ProfileScreen]: undefined;
+  [Routes.TopStack.TravelScreen]: undefined;
+  [Routes.TopStack.CreateTripScreen]: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

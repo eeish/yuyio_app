@@ -13,6 +13,10 @@ const MapScreen = ({ navigation }: RootStackScreenProps<'MapScreen'>) => {
     navigation.navigate(Routes.TopStack.ProfileScreen);
   };
 
+  const onPressTravel = () => {
+    navigation.navigate(Routes.TopStack.TravelScreen);
+  };
+
   return (
     <Container style={styles.container}>
       <MapView provider={PROVIDER_GOOGLE} style={styles.mapView} />
@@ -35,7 +39,7 @@ const MapScreen = ({ navigation }: RootStackScreenProps<'MapScreen'>) => {
         />
       </TouchableOpacity>
       <View style={styles.bottomButton}>
-        <Button fullWidth text={'Go to Travel'} />
+        <Button fullWidth text={'Go to Travel'} onPress={onPressTravel} />
       </View>
     </Container>
   );

@@ -5,9 +5,11 @@ import {
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ColorSchemeName } from 'react-native';
+import CreateTripScreen from './screens/CreateTripScreen';
 import LoginScreen from './screens/LoginScreen';
 import MapScreen from './screens/MapScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import TravelScreen from './screens/TravelScreen';
 import { Routes, navigationRef } from './utils/navigation';
 import { RootStackParamList } from './utils/types';
 
@@ -32,6 +34,14 @@ export default function Navigation(props: Props) {
           <Stack.Screen
             name={Routes.TopStack.ProfileScreen}
             component={ProfileScreen}
+          />
+          <Stack.Screen
+            name={Routes.TopStack.TravelScreen}
+            component={TravelScreen}
+          />
+          <Stack.Screen
+            name={Routes.TopStack.CreateTripScreen}
+            component={CreateTripScreen}
           />
         </Stack.Group>
       </Stack.Navigator>
