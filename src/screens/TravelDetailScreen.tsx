@@ -33,7 +33,12 @@ const TravelDetailScreen = ({
             </View>
           </View>
         </View>
-
+        <View style={{ paddingHorizontal: 20, marginBottom: 20 }}>
+          <Image
+            style={styles.cover}
+            source={require('../assets/images/travel.png')}
+          />
+        </View>
         <TouchableOpacity style={styles.listItem} activeOpacity={0.8}>
           <Text style={styles.listItemText}>Moments</Text>
         </TouchableOpacity>
@@ -79,6 +84,11 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     borderRadius: 22,
+  },
+  cover: {
+    width: '100%',
+    height: 180,
+    borderRadius: 16,
   },
   socialInfo: {
     flexDirection: 'row',
