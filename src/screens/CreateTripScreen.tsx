@@ -12,7 +12,9 @@ import { RootStackScreenProps } from '../utils/types';
 const CreateTripScreen = ({
   navigation,
 }: RootStackScreenProps<'CreateTripScreen'>) => {
-  const onPressGenerate = () => {};
+  const onPressGenerate = () => {
+    navigation.goBack();
+  };
 
   return (
     <Container safeAreaEdges={['top']} style={styles.container}>

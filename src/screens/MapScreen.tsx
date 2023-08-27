@@ -7,7 +7,9 @@ import { Routes } from '../utils/navigation';
 import { RootStackScreenProps } from '../utils/types';
 
 const MapScreen = ({ navigation }: RootStackScreenProps<'MapScreen'>) => {
-  const onPressChat = () => {};
+  const onPressChat = () => {
+    navigation.navigate(Routes.TopStack.CheckInScreen);
+  };
 
   const onPressAvatar = () => {
     navigation.navigate(Routes.TopStack.ProfileScreen);
