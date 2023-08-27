@@ -20,6 +20,10 @@ const TravelScreen = ({ navigation }: RootStackScreenProps<'TravelScreen'>) => {
     navigation.navigate(Routes.TopStack.CreateTripScreen);
   };
 
+  const onPressTravelDetail = () => {
+    navigation.navigate(Routes.TopStack.TravelDetailScreen);
+  };
+
   return (
     <Container style={styles.container}>
       <View style={styles.header}>
@@ -35,7 +39,10 @@ const TravelScreen = ({ navigation }: RootStackScreenProps<'TravelScreen'>) => {
       </View>
       <View style={styles.scrollViewContainer}>
         <ScrollView style={styles.scrollView}>
-          <View style={styles.card}>
+          <TouchableOpacity
+            style={styles.card}
+            activeOpacity={0.8}
+            onPress={onPressTravelDetail}>
             <View style={styles.travelInfo}>
               <View style={styles.avatar}>
                 <Image
@@ -57,8 +64,11 @@ const TravelScreen = ({ navigation }: RootStackScreenProps<'TravelScreen'>) => {
               style={styles.cover}
               source={require('../assets/images/travel.png')}
             />
-          </View>
-          <View style={styles.card}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.card}
+            activeOpacity={0.8}
+            onPress={onPressTravelDetail}>
             <View style={styles.travelInfo}>
               <View style={styles.avatar}>
                 <Image
@@ -80,8 +90,11 @@ const TravelScreen = ({ navigation }: RootStackScreenProps<'TravelScreen'>) => {
               style={styles.cover}
               source={require('../assets/images/travel.png')}
             />
-          </View>
-          <View style={styles.card}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.card}
+            activeOpacity={0.8}
+            onPress={onPressTravelDetail}>
             <View style={styles.travelInfo}>
               <View style={styles.avatar}>
                 <Image
@@ -103,7 +116,7 @@ const TravelScreen = ({ navigation }: RootStackScreenProps<'TravelScreen'>) => {
               style={styles.cover}
               source={require('../assets/images/travel.png')}
             />
-          </View>
+          </TouchableOpacity>
         </ScrollView>
       </View>
     </Container>

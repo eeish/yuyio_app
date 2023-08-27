@@ -11,6 +11,7 @@ const TopStack = {
   TravelScreen: 'TravelScreen' as const,
   CreateTripScreen: 'CreateTripScreen' as const,
   CheckInScreen: 'CheckInScreen' as const,
+  TravelDetailScreen: 'TravelDetailScreen' as const,
 };
 
 export const Routes = {

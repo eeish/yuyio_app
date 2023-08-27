@@ -10,6 +10,7 @@ import CreateTripScreen from './screens/CreateTripScreen';
 import LoginScreen from './screens/LoginScreen';
 import MapScreen from './screens/MapScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import TravelDetailScreen from './screens/TravelDetailScreen';
 import TravelScreen from './screens/TravelScreen';
 import { Routes, navigationRef } from './utils/navigation';
 import { RootStackParamList } from './utils/types';
@@ -47,6 +48,10 @@ export default function Navigation(props: Props) {
           <Stack.Screen
             name={Routes.TopStack.CreateTripScreen}
             component={CreateTripScreen}
+          />
+          <Stack.Screen
+            name={Routes.TopStack.TravelDetailScreen}
+            component={TravelDetailScreen}
           />
         </Stack.Group>
       </Stack.Navigator>
